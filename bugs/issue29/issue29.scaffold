@@ -1,0 +1,13 @@
+
+module buggy() {
+  qbit q[1];
+  cbit c = MeasZ(q[0]);
+}
+
+
+int main() {
+    //qbit q[1];
+    //cbit c = MeasZ(q[0]);
+    buggy();
+    return 0;
+}

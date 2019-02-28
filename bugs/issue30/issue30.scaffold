@@ -1,0 +1,9 @@
+int main() {
+    qbit q[2];
+    cbit mres[2];
+    mres[0] = MeasZ(q[0]);
+    mres[1] = MeasZ(q[1]);
+    if( mres[0] == 1 ) { Z(q[0]); }
+    if( mres[1] == 1) { X(q[1]); }
+    return 0;
+}

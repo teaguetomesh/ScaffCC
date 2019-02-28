@@ -1,0 +1,30 @@
+// Prepares (|00> + |11>)/Sqrt(2) given input qubits are both |0>
+module PrepareEntangledPair( qbit a, qbit b ) {
+    H(a);
+    CNOT(a,b);
+}
+
+// Un-prepares (|00> + |11>)/Sqrt(2) given input qubits are both |0>
+module PrepareEntangledPairAdjoint( qbit a, qbit b ) {
+    CNOT(a,b);
+    H(a);
+}
+
+module Teleport( qbit msg, qbit here, qbit there ) {
+    PrepareEntangledPair(here,there);
+    PrepareEntangledPairAdjoint(msg,here);
+    if( MeasZ(msg) ) { Z(there); }
+    if( MeasZ(here) ) { X(there); }
+}
+
+int main() {
+    // We assume that newly allocated qubits are in |0> state
+    qbit q[3];
+
+    // Set the first qubit to |+>
+    PrepX(q[0], 0);
+    Teleport(q[0],q[1],q[2]);
+    
+    // Measure third qubit in X basis
+    if( MeasX(q[2]) ) { return 1; } else { return 0; }
+}

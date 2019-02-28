@@ -1,6 +1,6 @@
 //===-------------------------- FlattenModule.cpp ------------------------===//
-// This file implements the Scaffold pass of flattening modules whose gate 
-// counts are below the threshold. These modules' names have been previously 
+// This file implements the Scaffold pass of flattening modules whose gate
+// counts are below the threshold. These modules' names have been previously
 // written to the file "flat_info.txt".
 //
 //        This file was created by Scaffold Compiler Working Group
@@ -33,7 +33,7 @@
 #include "llvm/Support/CommandLine.h"
 
 // DEBUG switch
-bool debugFlattening = false;
+bool debugFlattening = true;
 
 using namespace llvm;
 
@@ -52,19 +52,19 @@ namespace {
 
     // what functions to make leaves
     std::vector <Function*> makeLeaf;
-    
+
     // mark those call sites to be inlined
-    std::vector<CallInst*> inlineCallInsts; 
+    std::vector<CallInst*> inlineCallInsts;
 
     // functions in post-order
     std::vector<Function*> vectPostOrder;
 
     bool runOnModule (Module &M);
     bool runOnSCC( const std::vector<CallGraphNode *> &scc );
-    bool runOnFunction( Function & F );    
+    bool runOnFunction( Function & F );
 
     virtual void getAnalysisUsage(AnalysisUsage &AU) const {
-        AU.setPreservesCFG();  
+        AU.setPreservesCFG();
         AU.addRequired<CallGraph>();
         AU.addRequired<TargetData>();
     }
@@ -77,9 +77,9 @@ char FlattenModule::ID = 0;
 static RegisterPass<FlattenModule> X("FlattenModule", "Quantum Module Flattening Pass", false, false);
 
 bool FlattenModule::runOnModule( Module & M ) {
-  
+
   std::vector<std::string> leafNames;
-  
+
   std::string line;
   std::ifstream file ("flat_info.txt");
   if(file.is_open()) {
@@ -88,7 +88,7 @@ bool FlattenModule::runOnModule( Module & M ) {
     file.close();
   }
   else{
-    if(debugFlattening) 
+    if(debugFlattening)
         errs() << "Error: Could not open flat_info file.\n";
   }
   for (std::vector<std::string>::iterator i = leafNames.begin(), e = leafNames.end();
@@ -115,16 +115,16 @@ bool FlattenModule::runOnModule( Module & M ) {
   std::reverse(vectPostOrder.begin(),vectPostOrder.end());
 
   for(std::vector<Function*>::iterator vit = vectPostOrder.begin(), vitE = vectPostOrder.end();
-      vit!=vitE; ++vit) { 
-    Function *f = *vit;      
-    runOnFunction(*f);    
+      vit!=vitE; ++vit) {
+    Function *f = *vit;
+    runOnFunction(*f);
   }
 
-  
+
   // now we have all the call sites which need to be inlined
   // inline from the leaves all the way up
   const TargetData *TD = getAnalysisIfAvailable<TargetData>();
-  InlineFunctionInfo InlineInfo(&CG, TD);  
+  InlineFunctionInfo InlineInfo(&CG, TD);
 
   std::reverse(inlineCallInsts.begin(),inlineCallInsts.end());
   for (std::vector<CallInst*>::iterator i = inlineCallInsts.begin(), e = inlineCallInsts.end();
@@ -137,11 +137,11 @@ bool FlattenModule::runOnModule( Module & M ) {
                  << " into caller function " << "\n";
       continue;
     }
-    if (debugFlattening)    
+    if (debugFlattening)
       errs() << "Successfully inlined callee function " << CI->getCalledFunction()->getName()
                  << "into caller function " << "\n";
-  }  
-  
+  }
+
   return false;
 }
 
@@ -158,18 +158,18 @@ bool FlattenModule::runOnSCC( const std::vector<CallGraphNode *> &scc ) {
 }
 
 bool FlattenModule::runOnFunction( Function & F ) {
-  if (debugFlattening)  
+  if (debugFlattening)
     errs() << "run on function: " << F.getName() << "\n";
   // only continue if this function is part of makeLeaf and complete inlining is not toggled on
   if (FLAT == 0){
     if (std::find(makeLeaf.begin(), makeLeaf.end(), &F) == makeLeaf.end())
         return false;
   }
-  if (debugFlattening)  
+  if (debugFlattening)
     errs() << "makeLeaf: " << F.getName() << "\n";
-  
+
   for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I) {
-    Instruction *pInst = &*I;          
+    Instruction *pInst = &*I;
     if(CallInst *CI = dyn_cast<CallInst>(pInst)) {
       if (!CI->getCalledFunction()->isIntrinsic() && !CI->getCalledFunction()->isDeclaration()) {
         makeLeaf.push_back(CI->getCalledFunction());
