@@ -1,0 +1,15 @@
+-------QASM Generation Pass:
+
+module main (  ) {
+ 	qbit qreg[2];
+	PrepZ ( qreg[0] , 0 );
+ 	PrepZ ( qreg[1] , 0 );
+ 	X ( qreg[1] );
+ 	X ( qreg[0] );
+ 	H ( qreg[0] );
+ 	H ( qreg[1] );
+ 	MeasZ ( qreg[0] );
+ 	MeasZ ( qreg[1] );
+ }
+
+--------End of QASM generation

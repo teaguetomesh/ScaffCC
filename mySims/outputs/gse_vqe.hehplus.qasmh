@@ -1,0 +1,24 @@
+-------QASM Generation Pass:
+
+module main (  ) {
+ 	qbit reg[2];
+	cbit result[2];
+	Rx ( reg[0] , 0.000000e+00 );
+ 	Rx ( reg[1] , 0.000000e+00 );
+ 	Rx ( reg[0] , 0.000000e+00 );
+ 	Rx ( reg[1] , 0.000000e+00 );
+ 	H ( reg[0] );
+ 	CNOT ( reg[0] , reg[1] );
+ 	H ( reg[1] );
+ 	CNOT ( reg[1] , reg[0] );
+ 	Rz ( reg[0] , 0.000000e+00 );
+ 	Rz ( reg[1] , 0.000000e+00 );
+ 	Rz ( reg[0] , 0.000000e+00 );
+ 	Rz ( reg[1] , 0.000000e+00 );
+ 	Rz ( reg[0] , 0.000000e+00 );
+ 	Rz ( reg[1] , 0.000000e+00 );
+ 	result[0] = MeasZ ( reg[0] );
+ 	result[1] = MeasZ ( reg[1] );
+ }
+
+--------End of QASM generation

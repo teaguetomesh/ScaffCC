@@ -1,0 +1,10 @@
+qubit qreg0
+qubit qreg1
+PrepZ qreg0
+PrepZ qreg1
+X qreg1
+X qreg0
+H qreg0
+H qreg1
+MeasZ qreg0
+MeasZ qreg1

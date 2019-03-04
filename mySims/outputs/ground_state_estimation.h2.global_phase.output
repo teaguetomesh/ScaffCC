@@ -1,0 +1,31 @@
+
+  =======================================================================================================
+       _______                                                                                       
+      /  ___   \   _  __      ____   ____   __  ___  __  __   __    ___   ______  ____    ___         
+     /  /   /  |  | |/_/     / __/  /  _/  /  |/  / / / / /  / /   / _ | /_  __/ / __ \  / _ \        
+    /  /___/  /  _>  <      _\ \   _/ /   / /|_/ / / /_/ /  / /__ / __ |  / /   / /_/ / / , _/        
+    \______/\__\ /_/|_|    /___/  /___/  /_/  /_/  \____/  /____//_/ |_| /_/    \____/ /_/|_|         
+                                                                                              [v0.1 beta]
+  _______________________________________________________________________________________________________
+  [version 0.1 beta - Nader Khammassi - TU Delft, QuTech - 2016 - report bugs to: n.khammassi@tudelft.nl]
+  [released under Apache License 2.0 terms, license copy at:  http://www.apache.org/licenses/LICENSE-2.0]
+  ======================================================================================================= 
+
+[+] loading circuit from 'ground_state_estimation.h2.qc' ...
+[-] loading quantum_code file 'ground_state_estimation.h2.qc'...
+[+] code loaded successfully. 
+[+] initializing xpu...
+[+] initialized.
+[+] creating quantum register of 6 qubits... 
+[+] executing circuit 'default' (1 iter) ...
+--------------[quantum state]-------------- 
+   (+0.000000,+0.000000) |000001> +
+   (+0.510677,+0.821835) |001110> +
+   (+0.000000,-0.000000) |010001> +
+   (-0.214491,+0.133282) |011110> +
+------------------------------------------- 
+[>>] measurement prediction:  | 0 | X | X | X | X | X |
+------------------------------------------- 
+[>>] measurement register  :  | 0 | 0 | 0 | 0 | 0 | 0 |
+------------------------------------------- 
+[+] circuit execution time: +0.228355 sec.

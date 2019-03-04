@@ -1,0 +1,43 @@
+Compiling ScaffCC:
+When compiling on cafe, have to use "sudo make USE_GCC=1"
+
+Instructions for running scaffCC simulations
+Example is Yipeng's ground state estimation algorithm trying to recreate the
+Lanyon nature paper's estimation of the H2 ground state.
+
+
+Simply run the iterative_phase_estimation_qchem.py which iterates over multiple 
+calls to Yipeng's algorithm:
+
+  ./scripts/simulations/iterative_phase_estimation_qchem.py [scaffold file to run]
+
+To run a single instance, have to run the simulate.sh file by:
+
+  ./scripts/simulation/simulate.sh [scaffold file to run]
+
+
+The simulate.sh file generates:
+  .global_phase.output    -> Qx simulator output
+  .no_global_phase.output -> Qx simulator output
+  .qasmf                  -> flat qasm code
+  .qasmh                  -> hierarchical qasm code
+  .qc                     -> generates code nearly identical to .qasm files
+
+
+Run: ./scaffold.sh -help
+To get a listing of different flags and options
+
+USING QX SIMULATOR
+
+The QX simulator is found in ScaffCC/scripts/qx_simulator_linux_x86_64/
+The pdf documentation is found in that same folder/docs
+
+It can be useful to call the simulator directly as
+
+  scripts/qx_simulator_linux_x86_64/qx_simulator_1.0.beta_linux_x86_64 hamiltonian_averaging.qc > hamiltonian_averaging.qc.output
+
+This way you can edit the .qc files to insert more display commands to see the quantum state at
+different points in the circuit.
+
+Unfortunately, QX does not have a measX capability, so scaffold files with the MeasX() function
+will throw an error when trying to convert them to .qc format.

@@ -1,0 +1,31 @@
+
+  =======================================================================================================
+       _______                                                                                       
+      /  ___   \   _  __      ____   ____   __  ___  __  __   __    ___   ______  ____    ___         
+     /  /   /  |  | |/_/     / __/  /  _/  /  |/  / / / / /  / /   / _ | /_  __/ / __ \  / _ \        
+    /  /___/  /  _>  <      _\ \   _/ /   / /|_/ / / /_/ /  / /__ / __ |  / /   / /_/ / / , _/        
+    \______/\__\ /_/|_|    /___/  /___/  /_/  /_/  \____/  /____//_/ |_| /_/    \____/ /_/|_|         
+                                                                                              [v0.1 beta]
+  _______________________________________________________________________________________________________
+  [version 0.1 beta - Nader Khammassi - TU Delft, QuTech - 2016 - report bugs to: n.khammassi@tudelft.nl]
+  [released under Apache License 2.0 terms, license copy at:  http://www.apache.org/licenses/LICENSE-2.0]
+  ======================================================================================================= 
+
+[+] loading circuit from 'ground_state_estimation.yh2.scaffold.ipe.qc' ...
+[-] loading quantum_code file 'ground_state_estimation.yh2.scaffold.ipe.qc'...
+[+] code loaded successfully. 
+[+] initializing xpu...
+[+] initialized.
+[+] creating quantum register of 6 qubits... 
+[+] executing circuit 'default' (1 iter) ...
+--------------[quantum state]-------------- 
+   (-0.069318,+0.020065) |000011> +
+   (+0.044029,-0.001354) |001100> +
+   (+0.250854,+0.963316) |010011> +
+   (-0.044029,+0.001354) |011100> +
+------------------------------------------- 
+[>>] measurement prediction:  | 0 | X | X | X | X | X |
+------------------------------------------- 
+[>>] measurement register  :  | 0 | 0 | 0 | 0 | 0 | 0 |
+------------------------------------------- 
+[+] circuit execution time: +0.057063 sec.
