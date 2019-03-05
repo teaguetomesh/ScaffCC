@@ -1,0 +1,59 @@
+	Qubit	Gross A	Net A	Width	X	Z	H	T	T_dag	S	S_dag	CNOT	PrepZ	MeasZ
+Function: Y_Rx
+	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0
+Function: main
+	4	0	0	0	0	0	56	0	0	0	0	88	0	0
+144
+Function: DoubleExcitationOperator_IP3_IP2_IP1_IP0_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	32	0	0	0	0	48	0	0
+80
+Function: SingleExcitationOperator_IP1_IP0_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	4	0	0	0	0	4	0	0
+8
+Function: SingleExcitationOperator_IP2_IP0_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	4	0	0	0	0	8	0	0
+12
+Function: SingleExcitationOperator_IP2_IP1_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	4	0	0	0	0	4	0	0
+8
+Function: SingleExcitationOperator_IP3_IP0_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	4	0	0	0	0	12	0	0
+16
+Function: SingleExcitationOperator_IP3_IP1_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	4	0	0	0	0	8	0	0
+12
+Function: SingleExcitationOperator_IP3_IP2_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	4	0	0	0	0	4	0	0
+8
+Function: Y_Rxdagger
+	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0
+Function: CNOTLadder_IP1_IP1_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+1
+Function: CNOTLadder_IP2_IP1_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	2	0	0
+2
+Function: CNOTLadder_IP1_IP2_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	2	0	0
+2
+Function: CNOTLadder_IP2_IP2_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+1
+Function: CNOTLadder_IP3_IP1_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	3	0	0
+3
+Function: CNOTLadder_IP1_IP3_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	3	0	0
+3
+Function: CNOTLadder_IP3_IP2_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	2	0	0
+2
+Function: CNOTLadder_IP2_IP3_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	2	0	0
+2
+Function: CNOTLadder_IP3_IP3_IPx_IPx_DPx_DPx_DPx_DPx
+	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+1
+total_gates = 144

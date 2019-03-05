@@ -1,0 +1,5 @@
+	Qubit	Gross A	Net A	Width	X	Z	H	T	T_dag	S	S_dag	CNOT	PrepZ	MeasZ
+Function: main
+	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0
+total_gates = 0
